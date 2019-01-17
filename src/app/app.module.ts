@@ -36,6 +36,7 @@ import { MessagesComponent }    from './messages/messages.component';
     HeroDetailComponent,
     MessagesComponent,
     HeroSearchComponent
+
   ],
   bootstrap: [ AppComponent ]
 })

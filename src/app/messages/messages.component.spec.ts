@@ -1,25 +1,32 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { MessageService} from "../message.service";
+import { MessagesComponent } from "./messages.component";
+import {async, ComponentFixture, TestBed} from "@angular/core/testing";
 
-import { MessagesComponent } from './messages.component';
 
-describe('MessagesComponent', () => {
+describe('testing message component',() => {
+
   let component: MessagesComponent;
   let fixture: ComponentFixture<MessagesComponent>;
+  let service:MessageService;
 
-  beforeEach(async(() => {
+  beforeEach(async(()=>{
     TestBed.configureTestingModule({
-      declarations: [ MessagesComponent ]
+      declarations: [ MessagesComponent ],
+      providers:[MessageService]
     })
-    .compileComponents();
-  }));
-
-  beforeEach(() => {
     fixture = TestBed.createComponent(MessagesComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+  }));
+
+  it('should exist',()=>{
+    expect(component).toBeDefined();
+  })
+
+  it('should display message',()=>{
+    let messageString:string[] = ['HeroService: fetched heroes'];
+    expect(messageString[0]).toContain(component.messageService.messages)
+  })
+
+
+})
